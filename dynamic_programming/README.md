@@ -1,6 +1,6 @@
 # Dynamic Programming
 
-One file per technique family: implementation + tests, checked against brute force.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Dynamic Programming — Field Guide](https://claude.ai/code/artifact/c974221c-6651-4d95-a222-42471f92137e).
 
 ```
 python3 dynamic_programming/knapsack.py                                   # one file
