@@ -20,7 +20,7 @@ Gotchas:
   - Rerooting by running the O(n) DP from every root is O(n^2); the second
     pass is what makes it O(n).
 
-Run the tests at the bottom with:  python3 dynamic_programming/tree_dp.py
+Run the tests at the bottom with:  python3 dynamic_programming/tree_dp_problems.py
 """
 
 import random

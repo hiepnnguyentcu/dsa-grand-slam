@@ -22,7 +22,7 @@ for f in dynamic_programming/*.py; do python3 "$f" >/dev/null && echo "ok $f"; d
 | Two players, optimal play | [game_dp.py](game_dp.py) |
 | Modes over time: stocks, paint house | [state_machine.py](state_machine.py) |
 | n ≤ 20, subsets: TSP, team, assignment | [bitmask_dp.py](bitmask_dp.py) |
-| Choices on a tree, answer for every root | [tree_dp.py](tree_dp.py) |
+| Choices on a tree, answer for every root | [tree_dp_problems.py](tree_dp_problems.py) |
 | Count numbers ≤ N with a digit property | [digit_dp.py](digit_dp.py) |
 | Count mod 10⁹+7, Catalan shapes | [counting_dp.py](counting_dp.py) |
 | `dp[i] = a[i] + max(dp[i-k..i-1])` | [deque_optimization.py](deque_optimization.py) |
