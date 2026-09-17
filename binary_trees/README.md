@@ -1,6 +1,6 @@
 # Binary Trees
 
-One file per technique: implementation + tests. Shared node, codec and random-tree helpers live in [tree.py](tree.py).
+One file per technique: implementation + tests. Shared node, codec and random-tree helpers live in [tree.py](tree.py). Explanations: [Binary Trees — Field Guide](https://claude.ai/code/artifact/e12df7b3-b5ea-4c4b-9b6f-df52cda45a62).
 
 ```
 python3 binary_trees/lca.py                                        # one file
