@@ -1,6 +1,6 @@
 # Math
 
-One file per technique: implementation + tests.
+One file per technique: implementation + tests. Explanations: [Math — Field Guide](https://claude.ai/code/artifact/4b1830c1-4c61-4508-8f97-25f8c017b5a5).
 
 ```
 python3 math_algorithms/fast_power.py                                   # one file
