@@ -1,6 +1,6 @@
 # Tries
 
-One file per technique family: implementation + tests, checked against brute force.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Tries — Field Guide](https://claude.ai/code/artifact/b43a5a21-403d-4104-8ee9-c6eec0e3e3b0).
 
 ```
 python3 tries/basic_trie.py                                   # one file
