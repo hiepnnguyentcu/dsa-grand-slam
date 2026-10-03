@@ -1,6 +1,6 @@
 # Stacks & Heaps
 
-One file per technique family: implementation + tests, checked against brute force.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Stacks & Heaps — Field Guide](https://claude.ai/code/artifact/0bf44f3c-1be4-40ac-89ea-cb4aadf55644).
 
 ```
 python3 stacks_heaps/monotonic_stack.py                                   # one file
