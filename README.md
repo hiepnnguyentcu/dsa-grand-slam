@@ -9,20 +9,42 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 
 | Theme | Techniques | Tests | Field Guide |
 |---|---|---|---|
+| [Hashing & Strings](hashing_strings/) | 7 | 36 | [Guide](https://claude.ai/code/artifact/124c1e02-f09b-486f-be10-642bb2d8b633) |
 | [Sliding Window & Two Pointers](sliding_window/) | 8 | 39 | [Guide](https://claude.ai/code/artifact/b846811e-9a34-44cd-aa71-c52c9165fbd5) |
 | [Prefix Sums](prefix_sums/) | 7 | 45 | [Guide](https://claude.ai/code/artifact/211b38e1-3bc5-408e-9cf4-d0b8f81df2b9) |
+| [Sorting](sorting/) | 7 | 43 | [Guide](https://claude.ai/code/artifact/2e0eac46-fb1c-4e75-9131-77608d979ab9) |
+| [Intervals](intervals/) | 6 | 22 | [Guide](https://claude.ai/code/artifact/ab0092c5-d68f-448a-bb91-35f81464dee2) |
 | [Binary Search](binary_search/) | 9 | 44 | [Guide](https://claude.ai/code/artifact/1430adbb-6aca-4d1a-a6bc-df3d8e1a21b8) |
+| [Linked Lists](linked_lists/) | 7 | 36 | [Guide](https://claude.ai/code/artifact/69ae0481-8f31-4207-b10e-69079321c7c9) |
 | [Stacks, Queues & Heaps](stacks_heaps/) | 16 | 83 | [Guide](https://claude.ai/code/artifact/0bf44f3c-1be4-40ac-89ea-cb4aadf55644) |
+| [Matrix & Simulation](matrix_simulation/) | 8 | 49 | [Guide](https://claude.ai/code/artifact/2fd43d5f-022c-42de-82bd-7011f5480229) |
 | [Binary Trees](binary_trees/) | 16 | 118 | [Guide](https://claude.ai/code/artifact/e12df7b3-b5ea-4c4b-9b6f-df52cda45a62) |
 | [Binary Search Trees](binary_search_trees/) | 11 | 42 | [Guide](https://claude.ai/code/artifact/ebf92a33-880b-482a-81fa-8ef77e334da4) |
 | [Tries](tries/) | 7 | 34 | [Guide](https://claude.ai/code/artifact/b43a5a21-403d-4104-8ee9-c6eec0e3e3b0) |
 | [Backtracking](backtracking/) | 9 | 48 | [Guide](https://claude.ai/code/artifact/deaf2307-8090-42dc-978f-c09d79524758) |
+| [Greedy](greedy/) | 8 | 47 | [Guide](https://claude.ai/code/artifact/0274a374-e893-43e9-b66a-6e5b667cd5f7) |
 | [Graphs](graphs/) | 22 | 218 | [Guide](https://claude.ai/code/artifact/ed02e36a-59a5-4346-8146-d43924037c92) |
 | [Dynamic Programming](dynamic_programming/) | 17 | 103 | [Guide](https://claude.ai/code/artifact/c974221c-6651-4d95-a222-42471f92137e) |
+| [Bit Manipulation](bit_manipulation/) | 6 | 40 | [Guide](https://claude.ai/code/artifact/bb26549a-f8af-477a-a29f-2073e4ead5c5) |
 | [Math](math_algorithms/) | 14 | 113 | [Guide](https://claude.ai/code/artifact/4b1830c1-4c61-4508-8f97-25f8c017b5a5) |
-| **Total** | **136** | **887** | |
+| [Data Structure Design](design/) | 7 | 57 | [Guide](https://claude.ai/code/artifact/6529e231-921f-4ba9-a43d-5b226effeb91) |
+| **Total** | **192** | **1217** | |
 
 ## By situation
+
+<details><summary><b>Hashing & Strings</b></summary>
+
+| Situation | File |
+|---|---|
+| Two sum (unsorted), pair counts, duplicates within k, first unique, isomorphic, word pattern | [hash_lookup.py](hashing_strings/hash_lookup.py) |
+| Anagram, ransom note, group anagrams/shifts, duplicates in 1..n by marking | [frequency_signatures.py](hashing_strings/frequency_signatures.py) |
+| Longest consecutive in O(n), first missing positive, valid sudoku, seen-set cycles | [set_sequences.py](hashing_strings/set_sequences.py) |
+| Majority > n/2 or > n/3 in O(1) space (Boyer–Moore) | [majority_vote.py](hashing_strings/majority_vote.py) |
+| Reverse words, compression, encode/decode list, longest common prefix, zigzag | [string_building.py](hashing_strings/string_building.py) |
+| Longest palindromic substring, count palindromic substrings | [expand_centre.py](hashing_strings/expand_centre.py) |
+| strStr, repeated DNA, longest duplicate substring, repeated block, shortest palindrome | [string_matching.py](hashing_strings/string_matching.py) |
+
+</details>
 
 <details><summary><b>Sliding Window & Two Pointers</b></summary>
 
@@ -53,6 +75,33 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 
 </details>
 
+<details><summary><b>Sorting</b></summary>
+
+| Situation | File |
+|---|---|
+| Write a sort: insertion, merge (top-down/bottom-up), quick (Lomuto/Hoare/3-way) | [comparison_sorts.py](sorting/comparison_sorts.py) |
+| Small int range, fixed-width keys, uniform floats: counting, radix, bucket | [linear_sorts.py](sorting/linear_sorts.py) |
+| K-th element / median in O(n), k smallest, wiggle sort II | [selection.py](sorting/selection.py) |
+| Count pairs i < j: inversions, smaller after self, reverse pairs, range sums | [merge_count.py](sorting/merge_count.py) |
+| Multi-key, comparator, given order: largest number, logs, frequency | [custom_comparators.py](sorting/custom_comparators.py) |
+| Sort then sweep: intervals, min difference, H-index, max gap, cookies | [sort_first.py](sorting/sort_first.py) |
+| Values in 1..n, O(1) space: missing/duplicate, couples, min swaps | [cyclic_sort.py](sorting/cyclic_sort.py) |
+
+</details>
+
+<details><summary><b>Intervals</b></summary>
+
+| Situation | File |
+|---|---|
+| Merge overlapping, insert into sorted, summary/missing ranges, partition labels | [merging.py](intervals/merging.py) |
+| Can attend all, max meetings, min removals, min arrows | [overlap_greedy.py](intervals/overlap_greedy.py) |
+| Min rooms (two sorted arrays), busiest time, employee free time, skyline | [sweep_line.py](intervals/sweep_line.py) |
+| Online bookings: My Calendar I / II / III | [booking.py](intervals/booking.py) |
+| Add/remove/query ranges, stream as disjoint intervals | [interval_set.py](intervals/interval_set.py) |
+| Covered intervals, count intervals per point, smallest interval per query | [relations.py](intervals/relations.py) |
+
+</details>
+
 <details><summary><b>Binary Search</b></summary>
 
 | Situation | File |
@@ -66,6 +115,21 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 | 2D matrix: row-major flatten vs staircase | [matrix_search.py](binary_search/matrix_search.py) |
 | Median / k-th of two sorted arrays | [two_arrays.py](binary_search/two_arrays.py) |
 | K-th smallest in matrix, multiplication table, pair distance | [kth_by_value.py](binary_search/kth_by_value.py) |
+
+</details>
+
+<details><summary><b>Linked Lists</b></summary>
+
+| Situation | File |
+|---|---|
+| Head might be deleted: remove value, sorted dedupe I/II, partition, delete given node | [dummy_head.py](linked_lists/dummy_head.py) |
+| Reverse all / m..n / k-groups, swap pairs, palindrome in O(1) space | [reversal.py](linked_lists/reversal.py) |
+| Reorder L0→Ln→L1, odd-even, rotate, split into k parts | [reordering.py](linked_lists/reordering.py) |
+| Merge two / k sorted, sort list O(n log n), insertion sort | [merge_sort.py](linked_lists/merge_sort.py) |
+| Digit lists: add I/II, plus one, double | [arithmetic.py](linked_lists/arithmetic.py) |
+| Copy list with random pointer, flatten multilevel list | [extra_pointers.py](linked_lists/extra_pointers.py) |
+| Y-shaped lists: first shared node | [intersection.py](linked_lists/intersection.py) |
+| Shared `ListNode`, `from_list` / `to_list`, generators | [ll.py](linked_lists/ll.py) |
 
 </details>
 
@@ -89,6 +153,21 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 | Running median, IPO | [two_heaps.py](stacks_heaps/two_heaps.py) |
 | Delete from a heap, sliding median | [lazy_deletion.py](stacks_heaps/lazy_deletion.py) |
 | Meeting rooms, task cooldown, reorganise, CPU | [heap_scheduling.py](stacks_heaps/heap_scheduling.py) |
+
+</details>
+
+<details><summary><b>Matrix & Simulation</b></summary>
+
+| Situation | File |
+|---|---|
+| Direction arrays, turning, flatten `r*C+c`, reshape, shift, padding | [grid_idioms.py](matrix_simulation/grid_idioms.py) |
+| Spiral order, fill a spiral, walk outward from a cell | [spiral.py](matrix_simulation/spiral.py) |
+| Group by `r+c` / `r-c`, zigzag, sort diagonals, Toeplitz, diagonal sum | [diagonals.py](matrix_simulation/diagonals.py) |
+| Rotate 90° in place, flip, transpose, k quarter turns | [rotate_flip.py](matrix_simulation/rotate_flip.py) |
+| O(1)-space set zeroes, Game of Life in place | [in_place_marking.py](matrix_simulation/in_place_marking.py) |
+| Stones fall, Candy Crush, 2048 moves | [gravity.py](matrix_simulation/gravity.py) |
+| Valid Sudoku, tic-tac-toe winner / O(1) moves, lucky numbers | [validation.py](matrix_simulation/validation.py) |
+| Robot instructions, obstacles, bounded-in-circle, snake | [robot_simulation.py](matrix_simulation/robot_simulation.py) |
 
 </details>
 
@@ -163,6 +242,21 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 
 </details>
 
+<details><summary><b>Greedy</b></summary>
+
+| Situation | File |
+|---|---|
+| Prove it (exchange, stays ahead); coins where greedy fails | [proofs.py](greedy/proofs.py) |
+| Reach the end, fewest jumps, cover [0, T] | [reachability.py](greedy/reachability.py) |
+| Gas station, running sum ≥ 1, stock II | [running_balance.py](greedy/running_balance.py) |
+| Cookies, boats, two cities, tokens, perimeter | [sort_assign.py](greedy/sort_assign.py) |
+| Most parts, balanced split, hand of straights | [partitioning.py](greedy/partitioning.py) |
+| Candy, unique frequencies, queue by height | [two_pass.py](greedy/two_pass.py) |
+| Largest number, `*` brackets, min additions | [string_greedy.py](greedy/string_greedy.py) |
+| Deadlines, refuelling, bricks/ladders (heap regret) | [heap_regret.py](greedy/heap_regret.py) |
+
+</details>
+
 <details><summary><b>Graphs</b></summary>
 
 | Situation | File |
@@ -216,6 +310,19 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 
 </details>
 
+<details><summary><b>Bit Manipulation</b></summary>
+
+| Situation | File |
+|---|---|
+| Get / set / clear / flip a bit, lowest set bit, power of two / four, 32-bit emulation | [bit_basics.py](bit_manipulation/bit_basics.py) |
+| One element unpaired (twice / thrice), missing number, XOR of 0..n | [xor_tricks.py](bit_manipulation/xor_tricks.py) |
+| Popcount for 0..n, number of 1 bits, Hamming distance (pairs, total) | [counting_bits.py](bit_manipulation/counting_bits.py) |
+| Add / multiply without operators, reverse bits, AND of a range | [bit_arithmetic.py](bit_manipulation/bit_arithmetic.py) |
+| Subsets, submasks, k-subsets (Gosper), letter masks, Gray code | [bitmask_sets.py](bit_manipulation/bitmask_sets.py) |
+| XOR-equal triplets, distinct subarray ORs, decode adjacent XORs | [subarray_bitwise.py](bit_manipulation/subarray_bitwise.py) |
+
+</details>
+
 <details><summary><b>Math</b></summary>
 
 | Situation | File |
@@ -234,6 +341,20 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 | Turns, collinearity, slopes, rectangles, squares, convex hull | [geometry.py](math_algorithms/geometry.py) |
 | Shuffle, reservoir sampling, weighted pick, rand10 from rand7 | [randomized.py](math_algorithms/randomized.py) |
 | Reverse digits, palindrome number, 32-bit overflow, atoi | [digits.py](math_algorithms/digits.py) |
+
+</details>
+
+<details><summary><b>Data Structure Design</b></summary>
+
+| Situation | File |
+|---|---|
+| LRU / LFU cache, O(1) get/put | [caches.py](design/caches.py) |
+| Insert/delete/getRandom O(1), with duplicates | [randomized_set.py](design/randomized_set.py) |
+| HashMap/HashSet from scratch, load factor | [hash_table.py](design/hash_table.py) |
+| Value at time t, snapshots, corrected prices, rate limiter | [time_based.py](design/time_based.py) |
+| Peeking, nested list, zigzag, 2D iterators | [iterators.py](design/iterators.py) |
+| Max/min-count key O(1), leaderboard, average trip time | [rankings.py](design/rankings.py) |
+| Twitter feed, browser history, file system, tic-tac-toe | [mini_systems.py](design/mini_systems.py) |
 
 </details>
 
