@@ -1,6 +1,6 @@
 # Backtracking
 
-One file per technique family: implementation + tests, checked against brute force or itertools.
+One file per technique family: implementation + tests, checked against brute force or itertools. Explanations: [Backtracking — Field Guide](https://claude.ai/code/artifact/deaf2307-8090-42dc-978f-c09d79524758).
 
 ```
 python3 backtracking/subsets.py                                   # one file
