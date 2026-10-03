@@ -1,6 +1,6 @@
 # Binary Search
 
-One file per technique family: implementation + tests, checked against brute force. Explanations: Binary Search — Field Guide.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Binary Search — Field Guide](https://claude.ai/code/artifact/1430adbb-6aca-4d1a-a6bc-df3d8e1a21b8).
 
 ```
 python3 binary_search/templates.py                                   # one file
