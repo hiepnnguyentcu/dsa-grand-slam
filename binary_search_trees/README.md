@@ -1,6 +1,6 @@
 # Binary Search Trees
 
-One file per technique: implementation + tests. Shared node, codec and random-BST helpers live in [bst.py](bst.py). Generic traversal, LCA and tree DP are in [binary_trees/](../binary_trees/).
+One file per technique: implementation + tests. Shared node, codec and random-BST helpers live in [bst.py](bst.py). Explanations: [Binary Search Trees — Field Guide](https://claude.ai/code/artifact/ebf92a33-880b-482a-81fa-8ef77e334da4). Generic traversal, LCA and tree DP are in [binary_trees/](../binary_trees/).
 
 ```
 python3 binary_search_trees/floor_ceil.py                                 # one file
