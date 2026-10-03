@@ -1,6 +1,6 @@
 # Sorting
 
-One file per technique family: implementation + tests, checked against `sorted()` / brute force. Explanations: [Sorting — Field Guide](URL).
+One file per technique family: implementation + tests, checked against `sorted()` / brute force. Explanations: [Sorting — Field Guide](https://claude.ai/code/artifact/2e0eac46-fb1c-4e75-9131-77608d979ab9).
 
 ```
 python3 sorting/comparison_sorts.py                                   # one file
