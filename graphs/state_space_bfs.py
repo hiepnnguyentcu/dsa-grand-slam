@@ -61,7 +61,7 @@ def shortest_with_breaks(grid, k):
     if start_rem < 0:
         return -1
 
-    q = deque([(0, 0, start_rem, 0)])
+    q = deque([(0, 0, start_rem, 0)]) # r, c, wall_left, dist_taken
     seen = {(0, 0, start_rem)}
     while q:
         r, c, rem, d = q.popleft()
@@ -77,25 +77,24 @@ def shortest_with_breaks(grid, k):
 
 def visit_all_nodes(g):
     """Shortest walk visiting every node, starting anywhere, revisits allowed.
-
-    State is (current_node, bitmask_of_visited). Every node is a legal start, so
-    all n of them are seeded at distance 0 — multi-source BFS over a state space.
-    Revisiting a node is fine, which is why the plain "visited nodes" set would
-    be wrong here and the mask is doing the real work.
+    
+    State is (current_node, frozenset_of_visited). Every node is a legal start.
     """
     n = len(g)
-    full = (1 << n) - 1
-    q = deque((u, 1 << u, 0) for u in range(n))
-    seen = {(u, 1 << u) for u in range(n)}
+    all_visited = frozenset(range(n))
+    
+    q = deque((u, frozenset([u]), 0) for u in range(n))
+    seen = {(u, frozenset([u])) for u in range(n)}
+    
     while q:
-        u, mask, d = q.popleft()
-        if mask == full:
+        u, visited, d = q.popleft()
+        if visited == all_visited:
             return d
         for v in g[u]:
-            nm = mask | (1 << v)
-            if (v, nm) not in seen:
-                seen.add((v, nm))
-                q.append((v, nm, d + 1))
+            new_visited = visited | frozenset([v])  # union: add v to visited
+            if (v, new_visited) not in seen:
+                seen.add((v, new_visited))
+                q.append((v, new_visited, d + 1))
     return -1
 
 
