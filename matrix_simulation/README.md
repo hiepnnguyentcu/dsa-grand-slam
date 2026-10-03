@@ -1,6 +1,6 @@
 # Matrix & Simulation
 
-One file per technique family: implementation + tests, checked against a naive copy or step-by-step simulation.
+One file per technique family: implementation + tests, checked against a naive copy or step-by-step simulation. Explanations: [Matrix & Simulation — Field Guide](https://claude.ai/code/artifact/2fd43d5f-022c-42de-82bd-7011f5480229).
 
 ```
 python3 matrix_simulation/spiral.py                                          # one file
