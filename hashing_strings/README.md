@@ -1,6 +1,6 @@
 # Hashing & Strings
 
-One file per technique family: implementation + tests, checked against brute force.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Hashing & Strings — Field Guide](https://claude.ai/code/artifact/124c1e02-f09b-486f-be10-642bb2d8b633).
 
 ```
 python3 hashing_strings/hash_lookup.py                                   # one file
