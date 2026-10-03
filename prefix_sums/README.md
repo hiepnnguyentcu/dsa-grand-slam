@@ -1,6 +1,6 @@
 # Prefix Sums
 
-One file per technique family: implementation + tests, checked against brute force.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Prefix Sums — Field Guide](https://claude.ai/code/artifact/211b38e1-3bc5-408e-9cf4-d0b8f81df2b9).
 
 ```
 python3 prefix_sums/prefix_hashmap.py                                   # one file
