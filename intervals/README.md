@@ -1,6 +1,6 @@
 # Intervals
 
-One file per technique family: implementation + tests, checked against brute force. Explanations: Intervals — Field Guide (link coming).
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Intervals — Field Guide](https://claude.ai/code/artifact/ab0092c5-d68f-448a-bb91-35f81464dee2).
 
 ```
 python3 intervals/merging.py                                   # one file
