@@ -1,6 +1,6 @@
 # Data Structure Design
 
-One file per technique family: implementation + tests, checked against naive references.
+One file per technique family: implementation + tests, checked against naive references. Explanations: [Data Structure Design — Field Guide](https://claude.ai/code/artifact/6529e231-921f-4ba9-a43d-5b226effeb91).
 
 ```
 python3 design/caches.py                                            # one file
