@@ -1,6 +1,6 @@
 # Linked Lists
 
-One file per technique family: implementation + tests, checked against Python lists and node identity.
+One file per technique family: implementation + tests, checked against Python lists and node identity. Explanations: [Linked Lists — Field Guide](https://claude.ai/code/artifact/69ae0481-8f31-4207-b10e-69079321c7c9).
 
 ```
 python3 linked_lists/reversal.py                                   # one file
