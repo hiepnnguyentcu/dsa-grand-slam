@@ -1,6 +1,6 @@
 # Bit Manipulation
 
-One file per technique: implementation + tests. Explanations: [Bit Manipulation — Field Guide](FIELD_GUIDE_URL).
+One file per technique: implementation + tests. Explanations: [Bit Manipulation — Field Guide](https://claude.ai/code/artifact/bb26549a-f8af-477a-a29f-2073e4ead5c5).
 
 ```
 python3 bit_manipulation/xor_tricks.py                                   # one file
