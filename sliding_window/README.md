@@ -1,6 +1,6 @@
 # Sliding Window & Two Pointers
 
-One file per technique family: implementation + tests, checked against brute force.
+One file per technique family: implementation + tests, checked against brute force. Explanations: [Sliding Window & Two Pointers — Field Guide](https://claude.ai/code/artifact/b846811e-9a34-44cd-aa71-c52c9165fbd5).
 
 ```
 python3 sliding_window/longest_window.py                                 # one file
