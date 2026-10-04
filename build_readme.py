@@ -7,12 +7,14 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-ORDER = [
-    "sliding_window", "prefix_sums", "binary_search", "stacks_heaps",
-    "binary_trees", "binary_search_trees", "tries", "backtracking",
-    "graphs", "dynamic_programming", "math_algorithms",
+ORDER = [  # study order; folders not yet created are skipped
+    "hashing_strings", "sliding_window", "prefix_sums", "sorting", "intervals",
+    "binary_search", "linked_lists", "stacks_heaps", "matrix_simulation",
+    "binary_trees", "binary_search_trees", "tries", "backtracking", "greedy",
+    "graphs", "dynamic_programming", "bit_manipulation", "math_algorithms",
+    "design",
 ]
-HELPERS = {"tree.py", "bst.py"}  # shared utilities, not techniques
+HELPERS = {"tree.py", "bst.py", "ll.py"}  # shared utilities, not techniques
 
 
 def parse(folder):
@@ -35,7 +37,10 @@ def parse(folder):
 
 
 def main():
-    sections = [(f, *parse(f)) for f in ORDER]
+    present = {p.parent.name for p in ROOT.glob("*/README.md")}
+    for missing in sorted(present - set(ORDER)):
+        print(f"warning: {missing}/ is not in ORDER, so it is left out")
+    sections = [(f, *parse(f)) for f in ORDER if f in present]
     total_t = sum(s[4] for s in sections)
     total_k = sum(s[5] for s in sections)
     out = [
