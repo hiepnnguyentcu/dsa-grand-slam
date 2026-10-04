@@ -1,167 +1,144 @@
-"""Partitioning — cut a string into pieces that each pass a test.
+"""Partitioning — cut a string into valid pieces.
 
-Signs: "partition s so that every substring is ...", "all ways to split",
-       "restore IP addresses", "split into the maximum number of unique
-       substrings".
-Approach: the choice at each level is *where the next piece ends*. From
-          position `start`, try every end in start+1..n; if s[start:end] is a
-          valid piece, add it and recurse from `end`. Complete when
-          start == n.
-            - Palindrome partitioning: precompute is_pal[i][j] in O(n^2) so
-              each check is O(1).
-            - Restore IP: exactly 4 pieces of length 1-3, each 0-255, no
-              leading zero. Prune when the remaining length cannot fit in the
-              remaining pieces (more than 3 each or fewer than 1 each).
-            - Max unique split: pieces must be pairwise distinct; carry a
-              `used` set, and prune when even all remaining single chars
-              cannot beat the best found.
-Complexity: O(2^(n-1) * n) — there are 2^(n-1) ways to cut a string.
+Signs: "partition s so every piece is a palindrome", "restore IP addresses",
+       "all ways to split into dictionary words".
+Approach: loop from start -> start is where the next piece begins; i is where
+          it ends. Piece = s[start:i+1]; if valid, recurse i + 1.
+          start == len(s) -> every char is covered -> record.
+Complexity: O(2^n * n) — n-1 gaps, each cut or not.
 Gotchas:
-  - "0" is a valid IP octet; "00", "01" are not.
-  - Want only the *minimum* number of cuts or a count? That is DP
-    (dynamic_programming/palindrome_dp.py, string_segmentation.py).
-  - Slicing s[start:end] costs O(len); fine at these sizes, but precompute
-    checks when the validity test is expensive.
+  - Base case is start == len(s), not len(temp) == something (except IP:
+    exactly 4 parts AND all chars used).
+  - IP octet: no leading zero unless it IS "0"; value <= 255; length <= 3.
+  - 140: memo on start if the dict is huge, else the tree explodes on
+    "aaaa...ab".
+  - Fewest cuts (132) is DP: dynamic_programming/palindrome_dp.py.
 
 Run the tests at the bottom with:  python3 backtracking/partitioning.py
 """
 
 import random
+from itertools import product
 
 
 # ---------------------------------------------------------------- implementation
 
 
-def palindrome_partition(s):
-    """Every way to cut s so that each piece is a palindrome."""
+def partition(s):
+    """LC 131."""
     n = len(s)
-    is_pal = [[False] * (n + 1) for _ in range(n + 1)]  # is_pal[i][j]: s[i:j]
-    for i in range(n, -1, -1):
-        for j in range(i, n + 1):
-            is_pal[i][j] = j - i < 2 or (s[i] == s[j - 1] and is_pal[i + 1][j - 1])
+    res = []
 
-    out, path = [], []
+    def is_palindrome(piece):
+        return piece == piece[::-1]
 
-    def go(start):
+    def dfs(start, res, temp):
         if start == n:
-            out.append(path[:])
+            res.append(temp.copy())
             return
-        for end in range(start + 1, n + 1):
-            if is_pal[start][end]:
-                path.append(s[start:end])
-                go(end)
-                path.pop()
-    go(0)
-    return out
-
-
-def restore_ip(s):
-    """All valid IPv4 addresses formed by inserting three dots into s."""
-    n, out, path = len(s), [], []
-
-    def go(start):
-        left = 4 - len(path)
-        if left == 0:
-            if start == n:
-                out.append(".".join(path))
-            return
-        if not left <= n - start <= 3 * left:
-            return                            # remainder cannot fit
-        for end in range(start + 1, min(start + 3, n) + 1):
-            part = s[start:end]
-            if (len(part) > 1 and part[0] == "0") or int(part) > 255:
-                break                         # longer pieces fail too
-            path.append(part)
-            go(end)
-            path.pop()
-    go(0)
-    return out
-
-
-def max_unique_split(s):
-    """Max number of pieces in a split of s where all pieces are distinct."""
-    n, used, best = len(s), set(), [0]
-
-    def go(start):
-        if len(used) + (n - start) <= best[0]:
-            return                            # cannot beat best even with 1-char pieces
-        if start == n:
-            best[0] = len(used)
-            return
-        for end in range(start + 1, n + 1):
-            piece = s[start:end]
-            if piece in used:
+        for i in range(start, n):
+            piece = s[start:i + 1]
+            if not is_palindrome(piece):
                 continue
-            used.add(piece)
-            go(end)
-            used.discard(piece)
-    go(0)
-    return best[0]
+            temp.append(piece)
+            dfs(i + 1, res, temp)
+            temp.pop()
+    dfs(0, res, [])
+    return res
+
+
+def restore_ip_addresses(s):
+    """LC 93."""
+    n = len(s)
+    res = []
+
+    def is_valid(piece):
+        if len(piece) > 1 and piece[0] == "0":
+            return False
+        return int(piece) <= 255
+
+    def dfs(start, res, temp):
+        if len(temp) == 4:
+            if start == n:
+                res.append(".".join(temp))
+            return
+        for i in range(start, min(start + 3, n)):
+            piece = s[start:i + 1]
+            if not is_valid(piece):
+                continue
+            temp.append(piece)
+            dfs(i + 1, res, temp)
+            temp.pop()
+    dfs(0, res, [])
+    return res
+
+
+def word_break(s, word_dict):
+    """LC 140. Every sentence s can be split into."""
+    n = len(s)
+    words = set(word_dict)
+    res = []
+
+    def dfs(start, res, temp):
+        if start == n:
+            res.append(" ".join(temp))
+            return
+        for i in range(start, n):
+            piece = s[start:i + 1]
+            if piece not in words:
+                continue
+            temp.append(piece)
+            dfs(i + 1, res, temp)
+            temp.pop()
+    dfs(0, res, [])
+    return res
 
 
 # ------------------------------------------------------------------------ tests
 
 
 def all_splits(s):
-    """Brute force: each of the n-1 gaps is cut or not."""
-    n = len(s)
-    if n == 0:
-        return [[]]
+    """Every way to cut s, via a cut/no-cut bit per gap."""
     out = []
-    for mask in range(1 << (n - 1)):
-        parts, last = [], 0
-        for i in range(n - 1):
-            if mask >> i & 1:
-                parts.append(s[last:i + 1]); last = i + 1
-        parts.append(s[last:])
-        out.append(parts)
+    for bits in product([0, 1], repeat=max(len(s) - 1, 0)):
+        pieces, start = [], 0
+        for i, b in enumerate(bits, 1):
+            if b:
+                pieces.append(s[start:i]); start = i
+        pieces.append(s[start:])
+        out.append(pieces)
     return out
 
 
-def valid_octet(p):
-    return 1 <= len(p) <= 3 and str(int(p)) == p and int(p) <= 255
-
-
-def test_palindrome_partition_classic():
-    assert palindrome_partition("aab") == [["a", "a", "b"], ["aa", "b"]]
-    assert palindrome_partition("a") == [["a"]]
-
-
-def test_palindrome_partition_random_vs_brute_force():
-    random.seed(6)
-    for _ in range(80):
-        s = "".join(random.choice("ab") for _ in range(random.randint(1, 11)))
+def test_partition_vs_brute_force():
+    assert sorted(partition("aab")) == [["a", "a", "b"], ["aa", "b"]]
+    random.seed(1)
+    for _ in range(50):
+        s = "".join(random.choice("ab") for _ in range(random.randint(1, 10)))
         want = sorted(p for p in all_splits(s) if all(x == x[::-1] for x in p))
-        assert sorted(palindrome_partition(s)) == want
+        assert sorted(partition(s)) == want
 
 
-def test_restore_ip_classic():
-    assert sorted(restore_ip("25525511135")) == ["255.255.11.135", "255.255.111.35"]
-    assert restore_ip("0000") == ["0.0.0.0"]
-    assert sorted(restore_ip("101023")) == sorted(
-        ["1.0.10.23", "1.0.102.3", "10.1.0.23", "10.10.2.3", "101.0.2.3"])
+def test_restore_ip_addresses_vs_brute_force():
+    assert sorted(restore_ip_addresses("25525511135")) == ["255.255.11.135", "255.255.111.35"]
+    assert restore_ip_addresses("0000") == ["0.0.0.0"]
+    random.seed(2)
+    for _ in range(100):
+        s = "".join(random.choice("0125") for _ in range(random.randint(4, 12)))
+        want = sorted(".".join(p) for p in all_splits(s) if len(p) == 4 and all(
+            len(x) <= 3 and (x == "0" or x[0] != "0") and int(x) <= 255 for x in p))
+        assert sorted(restore_ip_addresses(s)) == want
 
 
-def test_restore_ip_random_vs_brute_force():
-    random.seed(7)
-    for _ in range(150):
-        s = "".join(random.choice("0123459") for _ in range(random.randint(1, 13)))
-        want = sorted(".".join(p) for p in all_splits(s) if len(p) == 4 and all(map(valid_octet, p)))
-        assert sorted(restore_ip(s)) == want
-
-
-def test_max_unique_split_classic():
-    assert max_unique_split("ababccc") == 5   # a b ab c cc
-    assert max_unique_split("aba") == 2
-    assert max_unique_split("aa") == 1
-
-
-def test_max_unique_split_random_vs_brute_force():
-    random.seed(8)
-    for _ in range(80):
-        s = "".join(random.choice("abc") for _ in range(random.randint(1, 11)))
-        want = max(len(p) for p in all_splits(s) if len(set(p)) == len(p))
-        assert max_unique_split(s) == want
+def test_word_break_vs_brute_force():
+    got = word_break("catsanddog", ["cat", "cats", "and", "sand", "dog"])
+    assert sorted(got) == ["cat sand dog", "cats and dog"]
+    random.seed(3)
+    for _ in range(50):
+        words = list({"".join(random.choice("ab") for _ in range(random.randint(1, 3))) for _ in range(4)})
+        s = "".join(random.choice(words) for _ in range(random.randint(1, 4)))
+        want = sorted(" ".join(p) for p in all_splits(s) if all(x in words for x in p))
+        assert sorted(word_break(s, words)) == want
 
 
 if __name__ == "__main__":
