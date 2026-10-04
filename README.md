@@ -21,14 +21,14 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 | [Binary Trees](binary_trees/) | 16 | 118 | [Guide](https://claude.ai/code/artifact/e12df7b3-b5ea-4c4b-9b6f-df52cda45a62) |
 | [Binary Search Trees](binary_search_trees/) | 11 | 42 | [Guide](https://claude.ai/code/artifact/ebf92a33-880b-482a-81fa-8ef77e334da4) |
 | [Tries](tries/) | 7 | 34 | [Guide](https://claude.ai/code/artifact/b43a5a21-403d-4104-8ee9-c6eec0e3e3b0) |
-| [Backtracking](backtracking/) | 9 | 48 | [Guide](https://claude.ai/code/artifact/deaf2307-8090-42dc-978f-c09d79524758) |
+| [Backtracking](backtracking/) | 11 | 53 | [Guide](https://claude.ai/code/artifact/deaf2307-8090-42dc-978f-c09d79524758) |
 | [Greedy](greedy/) | 8 | 47 | [Guide](https://claude.ai/code/artifact/0274a374-e893-43e9-b66a-6e5b667cd5f7) |
 | [Graphs](graphs/) | 22 | 218 | [Guide](https://claude.ai/code/artifact/ed02e36a-59a5-4346-8146-d43924037c92) |
 | [Dynamic Programming](dynamic_programming/) | 17 | 103 | [Guide](https://claude.ai/code/artifact/c974221c-6651-4d95-a222-42471f92137e) |
 | [Bit Manipulation](bit_manipulation/) | 6 | 40 | [Guide](https://claude.ai/code/artifact/bb26549a-f8af-477a-a29f-2073e4ead5c5) |
 | [Math](math_algorithms/) | 14 | 113 | [Guide](https://claude.ai/code/artifact/4b1830c1-4c61-4508-8f97-25f8c017b5a5) |
 | [Data Structure Design](design/) | 7 | 57 | [Guide](https://claude.ai/code/artifact/6529e231-921f-4ba9-a43d-5b226effeb91) |
-| **Total** | **192** | **1217** | |
+| **Total** | **194** | **1222** | |
 
 ## By situation
 
@@ -230,15 +230,17 @@ for f in */*.py; do python3 "$f" >/dev/null || echo "FAIL $f"; done   # everythi
 
 | Situation | File |
 |---|---|
-| Choose / explore / unchoose, all paths | [template.py](backtracking/template.py) |
-| All subsets, with duplicates | [subsets.py](backtracking/subsets.py) |
-| All orderings, with duplicates | [permutations.py](backtracking/permutations.py) |
-| Choose k, combination sum I/II/III | [combinations.py](backtracking/combinations.py) |
-| Palindrome cuts, IP addresses, unique split | [partitioning.py](backtracking/partitioning.py) |
-| Parentheses, phone letters, add operators | [string_generation.py](backtracking/string_generation.py) |
-| N-Queens, Sudoku | [constraint_placement.py](backtracking/constraint_placement.py) |
-| Word search, word search II (trie) | [grid_search.py](backtracking/grid_search.py) |
-| Too slow: k equal subsets, matchsticks | [pruning.py](backtracking/pruning.py) |
+| Subsets, with dups, non-decreasing subsequences, subset sums (78, 1863, 90, 491, 416, 2035) | [subsets.py](backtracking/subsets.py) |
+| Choose k, combination sum I/II/III/IV, missing binary string (77, 39, 40, 216, 377, 1980) | [combinations.py](backtracking/combinations.py) |
+| Permutations, with dups, tiles, palindromes, beautiful, squareful (46, 47, 1079, 267, 526, 996) | [permutations.py](backtracking/permutations.py) |
+| Next / prev / k-th permutation, rank (31, 556, 1053, 60) | [permutation_order.py](backtracking/permutation_order.py) |
+| k equal subsets, matchsticks, cookies, jobs, marbles (698, 473, 2305, 1723, 2551) | [bucket_filling.py](backtracking/bucket_filling.py) |
+| Palindrome partition, IP addresses, word break II (131, 93, 140) | [partitioning.py](backtracking/partitioning.py) |
+| Word search I/II, N-Queens, Sudoku, maze paths, paths III, DAG paths, flood fill, islands, gold (79, 212, 51, 52, 37, 63, 980, 797, 733, 200, 1219) | [grid_search.py](backtracking/grid_search.py) |
+| Parentheses, phone letters, add operators, target sum (22, 17, 282, 494) | [string_construction.py](backtracking/string_construction.py) |
+| Factor combinations, dice rolls (254, 1155) | [target_enumeration.py](backtracking/target_enumeration.py) |
+| Word pattern II, word pattern (291, 290) | [bijection.py](backtracking/bijection.py) |
+| Remove invalid parentheses (301) | [removal.py](backtracking/removal.py) |
 
 </details>
 
